@@ -5,4 +5,5 @@
 ```bash
 sudo 
 ```
+![](pict-01.png)
 Затем
