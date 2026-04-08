@@ -42,3 +42,24 @@ docker images
 ```
 ![](docker_images.png)
 
+Создадим каталог для сохранения БД после удаления контейнера:
+```bash
+sudo mkdir -p /var/lib/pg_docker
+
+Теперь запускаем контейнер:
+```bash
+# --rm после выполнения - удалить
+# -d = в фоне
+# -p = проброс портов, иначе извне не сможем подключиться
+# -v = монтируем каталог с данными в фс хоста /var/lib/postgres
+# данные не потеряются даже после удаления контейнера
+
+docker run --rm -d \
+	--name postgres18 \
+	-e POSTGRES_PASSWORD=123 \
+	-p 5432:5432 \
+	-v /var/lib/pg_docker:/var/lib/postgresql/18/docker \
+	postgres:18 
+
+docker ps
+```
