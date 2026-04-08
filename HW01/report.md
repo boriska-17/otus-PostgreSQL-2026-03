@@ -28,8 +28,12 @@ sudo systemctl status docker
 ```
 ![](docker_status.png)
 
-Затем с сайта был скачан образ postgres:18 (18-й версии):
+Затем с сайта https://hub.docker.com был скачан образ postgres:18 (18-й версии):
 ```bash
+--# добавлили себя в группу docker, чтобы не прописывать sudo в каждой команде
+sudo usermod -aG docker $USER
+newgrp docker
+
 docker search postgres
 
 docker pull postgres:18
