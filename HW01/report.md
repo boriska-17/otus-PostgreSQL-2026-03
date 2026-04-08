@@ -64,3 +64,4 @@ docker run --rm -d \
 
 docker ps
 ```
+![](docker_postgres_start.png)
