@@ -95,3 +95,4 @@ create table test_docker (id int, name text);
 insert into test_docker values(1, 'test');
 select * from test_docker;
 ```
+![](table_test_docker.png)
