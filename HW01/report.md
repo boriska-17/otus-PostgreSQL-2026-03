@@ -28,7 +28,9 @@ sudo systemctl status docker
 ```
 ![](docker_status.png)
 
-Затем с сайта https://hub.docker.com был скачан образ postgres:18 (18-й версии):
+## Установка контейнера postgres в Docker
+
+С сайта https://hub.docker.com был скачан образ postgres:18 (18-й версии):
 ```bash
 --# добавлили себя в группу docker, чтобы не прописывать sudo в каждой команде
 sudo usermod -aG docker $USER
@@ -65,3 +67,31 @@ docker run --rm -d \
 docker ps
 ```
 ![](docker_postgres_start.png)
+
+## Работа с БД postgres
+
+Зайдём на наш контейнер:
+```bash
+# 3. -it зайти внутрь в режиме терминала
+docker exec -it postgres18 bash
+```
+
+Подключимся под пользователем postgres:
+```bash
+su postgres
+psql
+```
+Создадим БД docker_db:
+```bash
+create database docker_db;
+```
+Подключимся к ней:
+```bash
+\c docker_db;
+```
+Создадим в ней табличку и добавим 2 записи в неё:
+```sql
+create table test_docker (id int, name text);
+insert into test_docker values(1, 'test');
+select * from test_docker;
+```
