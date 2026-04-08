@@ -27,4 +27,14 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 sudo systemctl status docker
 ```
 ![](docker_status.png)
-Затем
+
+Затем с сайта был скачан образ postgres:18 (18-й версии):
+```bash
+docker search postgres
+
+docker pull postgres:18
+
+docker images
+```
+![(docker_images.png)]
+
