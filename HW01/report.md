@@ -36,5 +36,5 @@ docker pull postgres:18
 
 docker images
 ```
-![(docker_images.png)]
+![](docker_images.png)
 
