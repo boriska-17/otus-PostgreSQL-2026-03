@@ -102,6 +102,7 @@ select * from test;
 ![](tsble_test.png)
 ### 17. Отключаем диск
 ```bash
+sudo pg_ctlcluster 18 main stop
 sudo umount /mnt/data/esp /mnt/data/root
 sudo kpartx -dv mydisk.img
 ```
