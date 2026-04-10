@@ -64,32 +64,44 @@ sudo su postgres
 psql
 ```
 ### 10. Создадим табличное пространство на смонтированном диске
+```bash
 create tablespace my_ts location '/mnt/data/root';
-
+```
 ### 11. Остановим кластер
+```bash
 sudo pg_ctlcluster 18 main stop
-
+```
 ### 12. Перенесём папку с данными кластера на новый диск
+```bash
 sudo su postgres
 mv /var/lib/postgresql/18/main /mnt/data/root
-
+```
 ### 13. Запускаем кластер (не стартует)
+```bash
 su boris
 sudo pg_cluster 18 main start
-####Error: /var/lib/postgresql/18/main is not accessible or does not exist
-
+#Error: /var/lib/postgresql/18/main is not accessible or does not exist
+```
 ### 14. Меняем путь к данным в файле /etc/postgresql/18/main/postgresql.conf
+```bash
 data_directory = '/mnt/data/root/main'
-
+```
 ### 15. Запускаем кластер (стартует)
+```bash
 sudo pg_cluster 18 main start
+```
 ![](clusters_after.png)
-
 ### 16. Смотрим табличку
+```bash
 sudo su postgres
 psql
+```
+```sql
 select * from test;
-
+```
+![](tsble_test.png)
 ### 17. Отключаем диск
+```bash
 sudo umount /mnt/data/esp /mnt/data/root
 sudo kpartx -dv mydisk.img
+```
