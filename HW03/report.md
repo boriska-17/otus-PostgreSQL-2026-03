@@ -1,4 +1,4 @@
-# ДЗ № 2. Логический уровень PostgresSQL
+# ДЗ № 3. Логический уровень PostgresSQL
 Смотрим на кластеры в postgres
 ```bash
 pg_lsclusters
