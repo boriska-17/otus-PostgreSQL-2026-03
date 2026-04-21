@@ -41,3 +41,27 @@ pgbench -c 50 -j 2 -P 10 -T 60 test
 
 Число транзакций увеличилось более, чем на тысячу в секунду!
 
+Теперь включим параметр fsync обратно и выключим параметр synchronous_commit:
+fsync=on
+synchronous_commit=off
+
+Перезапустим кластер:
+```bash
+sudo pg_ctlcluster 18 main restart
+```
+Проверим параметр synchronous_commit и fsync
+```bash
+sudo -u postgres psql
+show synchronous_commit
+show fsync
+```
+![](param_commit.png)
+
+Запускаем повторное тестирование
+```bash
+sudo su postgres
+pgbench -c 50 -j 2 -P 10 -T 60 test
+```
+![](pgbench_3.png)
+
+Число транзакций увеличилось ещё больше!
