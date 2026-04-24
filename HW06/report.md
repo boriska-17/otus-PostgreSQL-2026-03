@@ -28,3 +28,14 @@ insert into test_text (id, text) SELECT *, 'text' FROM generate_series(1, 100000
 ```
 ![](hw06-pict02.png)
 
+Обновим все строки 5 раз:
+```bash
+update test_text set text = text || '-' || 1;
+update test_text set text = text || 2;
+update test_text set text = text || 3;
+update test_text set text = text || 4;
+update test_text set text = text || 5;
+```
+
+В статистике таблицы test_text - 100% обновление строк:
+![](hw06-pict03.png)
