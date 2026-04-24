@@ -20,3 +20,11 @@ SELECT relname, n_live_tup, n_dead_tup, trunc(100*n_dead_tup/(n_live_tup+1))::fl
 FROM pg_stat_user_tables;
 ```
 ![](hw06-pict01.png)
+
+Создадим таблицу и заполним её миллионом строк
+```bash
+create table test_text (id int, text varchar(10));
+insert into test_text (id, text) SELECT *, 'text' FROM generate_series(1, 1000000);
+```
+![](hw06-pict02.png)
+
