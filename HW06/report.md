@@ -55,7 +55,7 @@ SELECT pg_size_pretty(pg_total_relation_size('student'));
 
 Теперь отключим autovacuum на нашу таблицу
 ```bash
-ALTER TABLE test_text SET (autovacuum_enabled = on);
+ALTER TABLE test_text SET (autovacuum_enabled = off);
 ```
 
 Выполним анонимный блок изменения всех записей в цикле 10 раз:
@@ -100,3 +100,9 @@ SELECT pg_size_pretty(pg_total_relation_size('test_text'));
 ```
 
 ![](hw06-pict07.png)
+
+
+Не забудем вернуть обратно autovacuum!
+```bash
+ALTER TABLE test_text SET (autovacuum_enabled = on);
+```
