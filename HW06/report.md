@@ -82,3 +82,21 @@ FROM pg_stat_user_tables where relname = 'test_text';
 Количество мёртвых строк - 10 млн, а вот % 601
 
 ![](hw06-pict05.png)
+
+Размер файла таблицы вырос до 465 Мб.
+```bash
+SELECT pg_size_pretty(pg_total_relation_size('test_text'));
+```
+
+![](hw06-pict06.png)
+
+Очистим таблицу.
+```bash
+vacuum test_text;
+vacuum full test_text;
+SELECT relname, n_live_tup, n_dead_tup, trunc(100*n_dead_tup/(n_live_tup+1))::float "ratio%", last_autovacuum 
+FROM pg_stat_user_tables where relname = 'test_text';
+SELECT pg_size_pretty(pg_total_relation_size('test_text'));
+```
+
+![](hw06-pict07.png)
