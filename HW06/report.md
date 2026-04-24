@@ -36,6 +36,9 @@ update test_text set text = text || 3;
 update test_text set text = text || 4;
 update test_text set text = text || 5;
 ```
-
 В статистике таблицы test_text - 100% обновление строк:
 ![](hw06-pict03.png)
+
+После срабатывания autovacuum количество мёртвых строк = 0,
+а размер файла таблицы всё равно остался в 6 раз больше оригинала, потому что не вызывался vacuum full:
+![](hw06-pict04.png)
