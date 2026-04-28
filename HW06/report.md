@@ -1,7 +1,7 @@
 # ДЗ № 6. MVCC, vacuum и autovacuum
 Подготовим тестовые таблицы
 ```bash
-pgbench -c8 -P 6 -T 60 -U postgres test
+pgbench -i test
 ```
 Запустим нагрузку
 ```bash
