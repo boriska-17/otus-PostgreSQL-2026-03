@@ -83,3 +83,51 @@ update accounts ac set amount = ac.amount + 100;
 ```
 
 ![](hw08-pict07.png)
+
+Пример взаимной блокировки во встречных циклах.
+
+```sql
+create table test_text (id int, text varchar(20));
+insert into test_text (id, text) SELECT id, 'text ' || id FROM generate_series(1, 100) id;
+```
+
+В первой сессии цикл по возрастанию id:
+
+```sql
+DO $$
+DECLARE
+    curs_name CURSOR FOR SELECT * FROM test_text order by id;
+    record_var RECORD;
+	i varchar(10);
+BEGIN
+    FOR record_var IN curs_name LOOP
+        -- Обработка строки
+        RAISE NOTICE '%', record_var.text;
+		update test_text t set text = t.text || '-1' where t.id = record_var.id;
+		select pg_sleep(1) into i;
+    END LOOP;
+END $$;
+```
+
+В первой сессии пойдём в цикле обратно по убыванию id:
+
+```sql
+DO $$
+DECLARE
+    curs_name CURSOR FOR SELECT * FROM test_text order by id desc;
+    record_var RECORD;
+	i varchar(10);
+BEGIN
+    FOR record_var IN curs_name LOOP
+        -- Обработка строки
+        RAISE NOTICE '%', record_var.text;
+		update test_text t set text = t.text || '-2' where t.id = record_var.id;
+		select pg_sleep(1) into i;
+    END LOOP;
+END $$;
+```
+
+![](hw08-pict09.png)
+
+Вторая сессия прервалась в обратном цикле при взаимной блокировке.
+
