@@ -1,4 +1,4 @@
-# ДЗ № 3. Логический уровень PostgresSQL
+# ДЗ № 3. Логический уровень PostgresSQL. Доступы и схемы
 Смотрим на кластеры в postgres
 ```bash
 pg_lsclusters
