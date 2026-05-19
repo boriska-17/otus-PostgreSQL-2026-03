@@ -1,4 +1,4 @@
-# ДЗ № 4. Логический уровень PostgresSQL
+# ДЗ № 4. Pgbench базовый тюнинг
 Заходим в базу
 ```bash
 sudo su postgres
