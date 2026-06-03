@@ -79,7 +79,7 @@ mv /var/lib/postgresql/18/main /mnt/data/root
 ### 13. Запускаем кластер (не стартует)
 ```bash
 su boris
-sudo pg_cluster 18 main start
+sudo pg_ctlcluster 18 main start
 #Error: /var/lib/postgresql/18/main is not accessible or does not exist
 ```
 ### 14. Меняем путь к данным в файле /etc/postgresql/18/main/postgresql.conf
