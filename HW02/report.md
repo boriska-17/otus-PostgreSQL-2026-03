@@ -88,7 +88,7 @@ data_directory = '/mnt/data/root/main'
 ```
 ### 15. Запускаем кластер (стартует)
 ```bash
-sudo pg_cluster 18 main start
+sudo pg_ctlcluster 18 main start
 ```
 ![](clusters_after.png)
 ### 16. Смотрим табличку
