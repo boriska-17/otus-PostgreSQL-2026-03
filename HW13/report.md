@@ -59,4 +59,12 @@ select * from schema_bkp.student2 limit 5;
 
 ![](hw13-pict01.png)
 
+Сделаем дамп схемиы
+```bash
 pg_dump -n schems_bkp bkp -U postgres -Fc > /var/lib/postgresql/backups/schema_bkp.gz
+```
+на что получаем ответ системы:
+
+bash: /var/lib/postgresql/backups/schema_bkp.gz: Отказано в доступе
+
+Почему???
