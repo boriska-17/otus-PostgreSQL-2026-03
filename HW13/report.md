@@ -67,9 +67,12 @@ pg_dump -n schems_bkp bkp -U postgres -Fc > /var/lib/postgresql/backups/schema_b
 
 bash: /var/lib/postgresql/backups/schema_bkp.gz: Отказано в доступе
 
+Почему?
+
 Несколько дней бился над проблемой "Отказано в доступе" при выполнении дампа.
 Права все есть на папку у postgres, но получал такую ошибку.
 Оказалось - я выполнял команду от пользователя root, именно поэтому получал ошибку.
+
 Сменим текущего пользователя на postgres и выполним дамп:
 ```bash
 sudo su postrges
