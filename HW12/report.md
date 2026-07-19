@@ -120,4 +120,4 @@ GROUP BY G.good_name;
 
 ```
 
-![](hw12-pict01.png)
+![](hw12-pict03.png)
