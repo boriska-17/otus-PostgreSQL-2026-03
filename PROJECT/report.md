@@ -98,7 +98,7 @@ mkdir -p ~/ora2pg-work/output
 Сформируем отчёт (предварительный анализ БД oracle):
 ora2pg -c ~/ora2pg-work/ora2pg.conf -t SHOW_REPORT --dump_as_html > ~/ora2pg-work/report.html
 
-![](Анализ исходной схемы.png)
+![](pict01.png)
 
 Сформируем БД asu и схему pilot в postgres:
 CREATE DATA BASE ASU;
