@@ -183,22 +183,17 @@ sudo systemctl restart postgresql
 А их много!
 ...
 
-![](pict_pgadmin.png)
-
-
-![](Данные.png)
-
-
 Теперь выгрузим данные в файл скрипта:
 ora2pg -c /home/boris/ora2pg-work/ora2pg.conf -t COPY
 
 Данные сразу копируются в postgres, потому что в конфиге прописана настройка подключения к нему.
 
-SELECT table_name FROM all_tables WHERE owner = 'PILOT' AND table_name LIKE 'DECL%';
+![](Данные.png)
 
 Сгенерируем триггеры в postgres
 psql -h 192.168.229.129 -U postgres -d ASU -f /home/boris/ora2pg-work/output/triggers_pilot.sql
 
+![](pict_pgadmin.png)
 
 Сгенерируем последовательности postgres
 psql -h 192.168.229.129 -U postgres -d ASU -f /home/boris/ora2pg-work/output/sequences_pilot.sql
