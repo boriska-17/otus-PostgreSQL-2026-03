@@ -41,17 +41,17 @@ sudo dpkg -i oracle-instantclient-*
 Пропишем tnsnames.ora
 ctestb.miit.ru =
   (DESCRIPTION =
-    (ADDRESS = (PROTOCOL = TCP)(HOST = db2v2.miit.ru)(PORT = 1521))
+    (ADDRESS = (PROTOCOL = TCP)(HOST = XXXX.miit.ru)(PORT = 1521))
     (LOAD_BALANCE=TRUE)
     (CONNECT_DATA =
       (SERVER = DEDICATED)
-      (SERVICE_NAME = ctestb.miit.ru)
+      (SERVICE_NAME = XXX.miit.ru)
     )
   )
 
 
 Запустим sqlplus:
-sqlplus pilot/A12345@//db2v2.miit.ru:1521/ctestb.miit.ru
+sqlplus pilot/pwd@//XXX.miit.ru:1521/XXX.miit.ru
 
 SELECT owner AS schema_name,
        segment_type,
@@ -61,15 +61,6 @@ FROM dba_segments
 WHERE owner = 'PILOT_BACK'
 GROUP BY owner, segment_type
 ORDER BY size_mb DESC;
-
-SELECT t.table_name
-		|| ': ' || t.num_rows
-		|| ', ' || ROUND(s.bytes / 1024 / 1024, 2) AS name
-FROM user_tables t
-LEFT JOIN dba_segments s ON t.table_name = s.segment_name
-where owner = 'PILOT_BACK'
-and t.table_name = 'TEMP_ORDER'
-ORDER BY 1;
 
 SELECT instance_name as SID FROM v$instance;
 
