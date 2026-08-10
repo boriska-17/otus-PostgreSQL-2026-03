@@ -116,9 +116,10 @@ touch /home/boris/ora2pg-work/output/schema_pilot.sql
 Сформируем структуру таблиц:
 ora2pg -c /home/boris/ora2pg-work/ora2pg.conf -t TABLE
 
+![](export_structure.png)
+
 В файле ora2pg.conf переменная
 FILE_PER_FKEYS		1
-
 поэтому генерация внешних ключей сформировалась в отдельном файле FKEYS_schema_pilot.sql;.
 
 Триггеры.
