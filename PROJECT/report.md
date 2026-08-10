@@ -147,11 +147,8 @@ touch /home/boris/ora2pg-work/output/views_pilot.sql
 Теперь сгенерируем последовательности:
 ora2pg -c /home/boris/ora2pg-work/ora2pg.conf -t VIEW -o views_pilot.sql
 
-
-
 Загрузим схему в postgres:
 psql -h 192.168.229.129 -U postgres -d ASU -f /home/boris/ora2pg-work/output/schema_pilot.sql --set ON_ERROR_STOP=on
-
 
 psql:schema_pilot.sql:4353: ОШИБКА:  для типа данных smallint не определён класс операторов по умолчанию для метода доступа "gin"
 ОШИБКА:  функция lengthb(character varying) не существует - меняем на OCTET_LENGTH
@@ -185,6 +182,12 @@ sudo systemctl restart postgresql
 Значит менять типы надо точечно вручную там, где надо.
 А их много!
 ...
+
+![](pict_pgadmin.png)
+
+
+![](Данные.png)
+
 
 Теперь выгрузим данные в файл скрипта:
 ora2pg -c /home/boris/ora2pg-work/ora2pg.conf -t COPY
