@@ -98,6 +98,7 @@ mkdir -p ~/ora2pg-work/output
 Сформируем отчёт (предварительный анализ БД oracle):
 ora2pg -c ~/ora2pg-work/ora2pg.conf -t SHOW_REPORT --dump_as_html > ~/ora2pg-work/report.html
 
+![](Анализ исходной схемы.png)
 
 Сформируем БД asu и схему pilot в postgres:
 CREATE DATA BASE ASU;
@@ -149,6 +150,7 @@ ora2pg -c /home/boris/ora2pg-work/ora2pg.conf -t VIEW -o views_pilot.sql
 
 Загрузим схему в postgres:
 psql -h 192.168.229.129 -U postgres -d ASU -f /home/boris/ora2pg-work/output/schema_pilot.sql --set ON_ERROR_STOP=on
+
 
 psql:schema_pilot.sql:4353: ОШИБКА:  для типа данных smallint не определён класс операторов по умолчанию для метода доступа "gin"
 ОШИБКА:  функция lengthb(character varying) не существует - меняем на OCTET_LENGTH
