@@ -193,15 +193,11 @@ ora2pg -c /home/boris/ora2pg-work/ora2pg.conf -t COPY
 Сгенерируем триггеры в postgres
 psql -h 192.168.229.129 -U postgres -d ASU -f /home/boris/ora2pg-work/output/triggers_pilot.sql
 
-![](pict_pgadmin.png)
-
-Сгенерируем последовательности postgres
+Сгенерируем последовательности и их значения postgres
 psql -h 192.168.229.129 -U postgres -d ASU -f /home/boris/ora2pg-work/output/sequences_pilot.sql
 psql -h 192.168.229.129 -U postgres -d ASU -f /home/boris/ora2pg-work/output/sequences_value_pilot.sql
 
 Сгенерируем представления в postgres
 psql -h 192.168.229.129 -U postgres -d ASU -f /home/boris/ora2pg-work/output/views_pilot.sql -v ON_ERROR_STOP=0
 
-Заменяем
-statement_timestamp() на clock_timestamp()
-sed -i 's/statement_timestamp()/clock_timestamp()/g' /home/boris/ora2pg-work/output/views_pilot.sql
+![](pict_pgadmin.png)
