@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Ora2Pg - Database Migration Report</title>
+  <meta HTTP-EQUIV="Generator" CONTENT="Ora2Pg v25.0">
+  <meta HTTP-EQUIV="Date" CONTENT="Sun Aug  9 00:21:33 2026">
+  <style>
+body {
+	margin: 30px 0;
+	padding: 0;
+	background: #EFEFEF;
+	font-size: 12px;
+	color: #1e1e1e;
+}
+
+h1 {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #DFDFDF;
+	font-size: 22px;
+	padding: 0px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	color: #0094C7;
+}
+
+h2 {
+	margin-bottom: 10px;
+	font-size: 18px;
+	padding: 0px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	color: #0094C7;
+}
+
+#header table {
+	padding: 0 5px 0 5px;
+	border: 1px solid #DBDBDB;
+	margin-bottom: 20px;
+	margin-left: 30px;
+}
+
+#header th {
+	padding: 0 5px 0 5px;
+	text-decoration: none;
+	font-size: 16px;
+	color: #EC5800;
+}
+
+#content table {
+	padding: 0 5px 0 5px;
+	border: 1px solid #DBDBDB;
+	margin-bottom: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#content td {
+	padding: 0 5px 0 5px;
+	border-bottom: 1px solid #888888;
+	margin-bottom: 20px;
+	text-align: left;
+	vertical-align: top;
+}
+
+#content th {
+	border-bottom: 1px solid #BBBBBB;
+	padding: 0 5px 0 5px;
+	text-decoration: none;
+	font-size: 16px;
+	color: #EC5800;
+}
+
+.object_name {
+        font-weight: bold;
+        color: #0094C7;
+	text-align: left;
+	white-space: pre;
+}
+
+.detail {
+	white-space: pre;
+}
+
+#footer {
+	margin-right: 10px;
+	text-align: right;
+}
+
+#footer a {
+	color: #EC5800;
+}
+
+#footer a:hover {
+	text-decoration: none;
+}
+  </style>
+</head>
+<body>
+<div id="header">
+<h1>Ora2Pg - Database Migration Report</h1>
+<table>
+<tr><th>Version</th><td>Oracle Database 11g Enterprise Edition Release 11.2.0.4.0</td></tr>
+<tr><th>Schema</th><td>PILOT</td></tr>
+<tr><th>Size</th><td>76700.19 MB</td></tr>
+</table>
+</div>
+<div id="content">
+<table>
+<tr><th>Object</th><th>Number</th><th>Invalid</th><th>Comments</th><th>Details</th></tr>
+<tr><td class="object_name">DATABASE LINK</td><td style="text-align: center;">0</td><td style="text-align: center;">0</td><td>Database links will be exported as SQL/MED PostgreSQL's Foreign Data Wrapper (FDW) extensions using oracle_fdw.</td><td class="detail"></td></tr>
+<tr><td class="object_name">FUNCTION</td><td style="text-align: center;">6</td><td style="text-align: center;">0</td><td>Total size of function code: 7777 bytes.</td><td class="detail"></td></tr>
+<tr><td class="object_name">GLOBAL TEMPORARY TABLE</td><td style="text-align: center;">7</td><td style="text-align: center;">0</td><td>Global temporary table are not supported by PostgreSQL and will not be exported. You will have to rewrite some application code to match the PostgreSQL temporary table behavior.</td><td class="detail"><details><summary>See details</summary>gtt_admission<br>gtt_lob_load<br>gtt_rp_contract<br>temp_2ndfl<br>temp_collect_sms_tab<br>temp_est_clob<br>temp_msg_sms_tab<br></details></td></tr>
+<tr><td class="object_name">INDEX</td><td style="text-align: center;">3635</td><td style="text-align: center;">0</td><td>2617 index(es) are concerned by the export, others are automatically generated and will do so on PostgreSQL. Bitmap will be exported as btree_gin index(es). Domain index are exported as b-tree but commented to be edited to mainly use FTS. Cluster, bitmap join and IOT indexes will not be exported at all. Reverse indexes are not exported too, you may use a trigram-based index (see pg_trgm) or a reverse() function based index and search. Use 'varchar_pattern_ops', 'text_pattern_ops' or 'bpchar_pattern_ops' operators in your indexes to improve search with the LIKE operator respectively into varchar, text or char columns.</td><td class="detail"><details><summary>See details</summary>8 bitmap index(es)<br>5 domain index(es)<br>12 function based b-tree index(es)<br>2592 b-tree index(es)<br></details></td></tr>
+<tr><td class="object_name">JOB</td><td style="text-align: center;">15</td><td style="text-align: center;">0</td><td>Job are not exported. You may set external cron job with them.</td><td class="detail"></td></tr>
+<tr><td class="object_name">LOB</td><td style="text-align: center;">6</td><td style="text-align: center;">0</td><td></td><td class="detail"></td></tr>
+<tr><td class="object_name">MATERIALIZED VIEW</td><td style="text-align: center;">10</td><td style="text-align: center;">0</td><td>All materialized view will be exported as snapshot materialized views, they are only updated when fully refreshed.</td><td class="detail"></td></tr>
+<tr><td class="object_name">PACKAGE BODY</td><td style="text-align: center;">256</td><td style="text-align: center;">6</td><td>Total size of package code: 21665470 bytes. Number of procedures and functions found inside those packages: 4249.</td><td class="detail"></td></tr>
+<tr><td class="object_name">PROCEDURE</td><td style="text-align: center;">7</td><td style="text-align: center;">0</td><td>Total size of procedure code: 47516 bytes.</td><td class="detail"></td></tr>
+<tr><td class="object_name">SEQUENCE</td><td style="text-align: center;">550</td><td style="text-align: center;">0</td><td>Sequences are fully supported, but all call to sequence_name.NEXTVAL or sequence_name.CURRVAL will be transformed into NEXTVAL('sequence_name') or CURRVAL('sequence_name').</td><td class="detail"></td></tr>
+<tr><td class="object_name">SYNONYM</td><td style="text-align: center;">1</td><td style="text-align: center;">0</td><td>SYNONYMs will be exported as views. SYNONYMs do not exists with PostgreSQL but a common workaround is to use views or set the PostgreSQL search_path in your session to access object outside the current schema.</td><td class="detail"><details><summary>See details</summary>pr_pays_access is an alias to PARUS_W_PAYS.PR_PAYS_ACCESS<br></details></td></tr>
+<tr><td class="object_name">TABLE</td><td style="text-align: center;">1069</td><td style="text-align: center;">0</td><td> 187 check constraint(s).</td><td class="detail"><details><summary>See details</summary>Total number of rows: 336730731<br>Top 10 of tables sorted by number of rows:<br>papers_history has 29569736 rows<br>spent has 25634747 rows<br>salary_account has 21111773 rows<br>account has 19130020 rows<br>educational_session has 17995231 rows<br>volume_discipline has 13665964 rows<br>basis_salary has 11717867 rows<br>paragraphs has 11039526 rows<br>orders has 10988379 rows<br>temp_order has 10446379 rows<br>Top 10 of largest tables:<br></details></td></tr>
+<tr><td class="object_name">TRIGGER</td><td style="text-align: center;">603</td><td style="text-align: center;">0</td><td>Total size of trigger code: 0 bytes.</td><td class="detail"></td></tr>
+<tr><td class="object_name">TYPE</td><td style="text-align: center;">402</td><td style="text-align: center;">0</td><td>400 type(s) are concerned by the export, others are not supported. Note that Type inherited and Subtype are converted as table, type inheritance is not supported.</td><td class="detail"><details><summary>See details</summary>20 associative arrays<br>182 nested tables<br>199 object type<br>1 type with member method<br></details></td></tr>
+<tr><td class="object_name">VIEW</td><td style="text-align: center;">111</td><td style="text-align: center;">2</td><td>Views are fully supported but can use specific functions.</td><td class="detail"></td></tr>
+<tr><th style="text-align: center; border-bottom: 0px; vertical-align: bottom;">Total</th><td style="text-align: center; border-bottom: 0px; vertical-align: bottom; border-bottom: 0px; vertical-align: bottom;">6563</td><td style="text-align: center; border-bottom: 0px; vertical-align: bottom;">8</td><td colspan="3" style="border-bottom: 0px; vertical-align: bottom;"></td></tr>
+</table>
+</div>
+
+<div id="footer">
+Generated by <a href="http://ora2pg.darold.net/">Ora2Pg v25.0</a>
+</div>
+</body>
+</html>
